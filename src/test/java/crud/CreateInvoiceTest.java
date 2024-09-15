@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CreateInvoiceTest extends BaseTest {
-    InvoiceFormPage invoiceFormPage = homePage.createInvoice();
+
     private String street = "123 Elm Street";
     private String city = "San Francisco";
     private String postCode = "94105";
@@ -23,6 +23,8 @@ public class CreateInvoiceTest extends BaseTest {
 
     @Test
     public void testCreateInvoice() {
+        InvoiceFormPage invoiceFormPage = homePage.createInvoice();
+
         invoiceFormPage.fillBillFrom(street, city, postCode, country);
         invoiceFormPage.fillBillTo(name, email, street, city, postCode, country);
         invoiceFormPage.fillInvoiceDetails(date, paymentTerms, description);
@@ -30,7 +32,7 @@ public class CreateInvoiceTest extends BaseTest {
         invoiceFormPage.submitAndSend();
 
         InvoiceListPage invoiceListPage = homePage.invoiceList();
-        
+
         WebElement invoiceName =  invoiceListPage.findInvoiceItemByName(name);
         Assert.assertNotNull(invoiceName, "Invoice name not found");
     }

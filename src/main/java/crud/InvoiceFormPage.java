@@ -24,7 +24,7 @@ public class InvoiceFormPage {
     private By invoiceDateInput = By.id("invoice-date");
     private By paymentTermsSelect = By.id("payment-terms");
     private By descriptionInput = By.id("description");
-    Select paymentTerm = new Select(driver.findElement(paymentTermsSelect));
+
 
 
     private By itemNameInput = By.id("item-name0");
@@ -61,6 +61,7 @@ public class InvoiceFormPage {
 
     // Method to fill out the invoice details
     public void fillInvoiceDetails(String invoiceDate, String paymentTerms, String description) {
+        Select paymentTerm = new Select(driver.findElement(paymentTermsSelect));
         driver.findElement(invoiceDateInput).sendKeys(invoiceDate);
         paymentTerm.selectByVisibleText(paymentTerms);
         driver.findElement(descriptionInput).sendKeys(description);
