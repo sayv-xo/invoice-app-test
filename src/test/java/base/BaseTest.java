@@ -29,8 +29,8 @@ public class BaseTest {
         darkModePage = homePage.darkMode();
     }
 
-//    @AfterClass
-//    public void tearDown() {
-//        driver.quit();
-//    }
+   @AfterClass
+   public void tearDown() {
+       driver.quit();
+   }
 }
